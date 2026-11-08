@@ -1,0 +1,10 @@
+{
+  "name": "agent-docket-trmnl",
+  "version": "0.2.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "bin": { "docket": "bin/docket.js" },
+  "scripts": { "docket": "node bin/docket.js", "test": "node --test", "dev": "wrangler dev", "deploy": "wrangler deploy" },
+  "engines": { "node": ">=18" }
+}

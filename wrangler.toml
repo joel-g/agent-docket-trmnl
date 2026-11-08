@@ -1,0 +1,10 @@
+name = "agent-docket-trmnl"
+main = "src/index.js"
+compatibility_date = "2026-11-04"
+# account_id = "REPLACE_WITH_YOUR_CLOUDFLARE_ACCOUNT_ID"
+workers_dev = true
+preview_urls = false
+
+[[kv_namespaces]]
+binding = "DOCKET_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"

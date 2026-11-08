@@ -1,0 +1,37 @@
+<style>
+  .docket { font-family: sans-serif; padding: 20px; height: 480px; box-sizing: border-box; color: #000; background: #fff; }
+  .docket * { box-sizing: border-box; }
+  .docket h1 { font-size: 28px; margin: 0; }
+  .docket .subtitle { font-size: 15px; margin: 4px 0 16px; }
+  .docket .columns { display: flex; gap: 22px; height: 338px; }
+  .docket section { width: 50%; min-width: 0; }
+  .docket h2 { font-size: 21px; margin: 0 0 8px; border-bottom: 3px solid #000; padding-bottom: 7px; }
+  .docket article { height: 66px; border-bottom: 1px solid #000; padding: 4px 0; }
+  .docket .title { font-size: 17px; font-weight: bold; }
+  .docket .detail { font-size: 14px; }
+  .docket .meta, .docket footer, .docket .more { font-size: 12px; }
+  .docket article div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 19px; }
+  .docket .more { padding-top: 7px; }
+  .docket footer { border-top: 2px solid #000; padding-top: 8px; }
+</style>
+<div class="docket">
+  <h1>Agent Docket</h1>
+  <div class="subtitle">Your open threads with AI agents, at a glance.</div>
+  <div class="columns">
+    <section>
+      <h2>Needs you · {{ needs_you_count }}</h2>
+      {% for item in needs_you %}
+        <article><div class="title">{{ item.title | escape }}</div><div class="detail">{{ item.detail | escape }}</div><div class="meta">{{ item.meta | escape }}</div></article>
+      {% else %}<p>Nothing needs your attention.</p>{% endfor %}
+      {% if needs_you_more > 0 %}<div class="more">+{{ needs_you_more }} more</div>{% endif %}
+    </section>
+    <section>
+      <h2>Waiting on others · {{ waiting_on_others_count }}</h2>
+      {% for item in waiting_on_others %}
+        <article><div class="title">{{ item.title | escape }}</div><div class="detail">{{ item.detail | escape }}</div><div class="meta">{{ item.meta | escape }}</div></article>
+      {% else %}<p>No outstanding handoffs.</p>{% endfor %}
+      {% if waiting_on_others_more > 0 %}<div class="more">+{{ waiting_on_others_more }} more</div>{% endif %}
+    </section>
+  </div>
+  <footer>Last change: {{ updated | escape }} · Agentic workflows</footer>
+</div>

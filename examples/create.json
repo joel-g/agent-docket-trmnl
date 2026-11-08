@@ -1,0 +1,8 @@
+{
+  "title": "Review Agent Docket proof of concept",
+  "detail": "Choose the next integration to connect.",
+  "group": "needs_you",
+  "kind": "todo",
+  "source": "Your agent",
+  "url": "https://example.com/tasks/review"
+}
